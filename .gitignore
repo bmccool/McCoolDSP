@@ -1,0 +1,12 @@
+*.sln
+*.vcxproj
+*.filters
+/x64/*
+/venv/*
+/build/*
+/CMakeFiles/*
+/lib/*
+*.dir/
+*/build/*
+*.cmake
+*/CMakeCache.txt
