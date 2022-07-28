@@ -10,3 +10,8 @@
 */build/*
 *.cmake
 */CMakeCache.txt
+graph_info.json
+CMakeCache.txt
+CMakePresets.json
+conanbuildinfo.txt
+conaninfo.txt

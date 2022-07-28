@@ -23,5 +23,4 @@ class McCoolDSPTestConan(ConanFile):
     def test(self):
         if not tools.cross_building(self):
             os.chdir("bin")
-            print("Hello!")
             self.run(f".{os.sep}test")
