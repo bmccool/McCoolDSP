@@ -5,16 +5,16 @@ TEST_CASE("First Test", "[test]"){
     REQUIRE(1 == 1);
 }
 
-TEST_CASE("HSP_Frequency_Detector", "[test]"){
-    HSP_Frequency_Detector detector(256, 3);
+TEST_CASE("HPS_Frequency_Detector", "[test]"){
+    HPS_Frequency_Detector detector(256, 3);
     REQUIRE(detector.window_size == 256);
     REQUIRE(detector.samples.size() == 0);
     REQUIRE(detector.samples.reserve() == 256);
     REQUIRE(detector.num_products == 3);
 }
 
-TEST_CASE("HSP_Frequency_Detector::samples", "[test]"){
-    HSP_Frequency_Detector detector(10, 3);
+TEST_CASE("HPS_Frequency_Detector::samples", "[test]"){
+    HPS_Frequency_Detector detector(10, 3);
     REQUIRE(detector.samples.size() == 0);
     REQUIRE(detector.samples.reserve() == 10);
     for(int i = 0; i < 15; i++){
@@ -48,11 +48,11 @@ TEST_CASE("HPS_Frequency_Detector::detect"){
                           294, 735, 350, 419, 618, 413, 505, 383, 410, 418, 337, 622, 241, 577, 640, 367, 374, 583, 339, 427, 
                           570, 520, 67,  428, 726, 188, 422, 525, 591, 301, 732, 345, 412, 615, 427, 510, 376, 416, 420, 349, 
                           617, 242, 555, 652, 373, 379, 574, 336, 424, 580, 522, 63,  427, 733, 200, 421};
-    HSP_Frequency_Detector detector(256, 3);
+    HPS_Frequency_Detector detector(256, 3);
     REQUIRE(detector.samples.size() == 0);
     REQUIRE(detector.samples.reserve() == 256);
     for(int i = 0; i < 256; i++){
-        detector.add_sample(i);
+        detector.add_sample(bagpipe3300[i]);
     }
     REQUIRE(detector.samples.size() == 256);
     REQUIRE(detector.samples.reserve() == 0);
