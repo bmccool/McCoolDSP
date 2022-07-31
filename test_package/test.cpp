@@ -59,3 +59,15 @@ TEST_CASE("HPS_Frequency_Detector::detect"){
 
     REQUIRE(detector.detect() == 455.5);
 }
+
+TEST_CASE("HPS_Frequency_Detector::hanning"){
+    HPS_Frequency_Detector detector(256, 3);
+    for(int i = 0; i < 256; i++){
+        detector.add_sample(1000);
+    }
+
+    detector.hanning();
+    REQUIRE(detector.samples.reserve() == 0);
+    REQUIRE(detector.samples[0] == 0);
+    REQUIRE(detector.samples[256] == 0);
+}

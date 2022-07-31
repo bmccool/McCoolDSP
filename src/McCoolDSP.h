@@ -2,6 +2,8 @@
 
 #include <boost/circular_buffer.hpp>
 
+#define PI 3.141592653589793238462643383279502884197169399375105820974944
+
 #ifdef WIN32
     #define McCoolDSP_EXPORT __declspec(dllexport)
 #else
@@ -9,6 +11,7 @@
 #endif
 
 McCoolDSP_EXPORT void McCoolDSP();
+
 
 class HPS_Frequency_Detector {
     private:
@@ -20,6 +23,22 @@ class HPS_Frequency_Detector {
         HPS_Frequency_Detector(unsigned int window_size, unsigned int num_products): window_size(window_size), num_products(num_products), samples(boost::circular_buffer<int>(window_size)){}
         void add_sample(int sample){
             samples.push_back(sample);
+        }
+
+        void hanning(){
+            /* hanning
+            Our hanning function will create a hanning window as specified by length and apply
+            it to the first <length> samples of the buffer.
+
+            The hanning window will be defined for index n as 
+            0.5 - 0.5(cos(2*pi*n / (<length> - 1))) 
+            */
+            const int length = 256; // TODO Can this be dynamic?
+            int window[length];
+            for(int i = 0; i < length; i++){
+                window[i] = 0.5 - 0.5*(cos(2*PI*i / (length - 1)));
+                samples[i] = samples[i] * (0.5 - 0.5*(cos(2*PI*i / (length - 1))));
+            }
         }
 
         float detect(){
