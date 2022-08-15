@@ -1,3 +1,9 @@
+// Code to implement decently performing FFT for complex and real valued
+// signals. See www.lomont.org for a derivation of the relevant algorithms 
+// from first principles. Copyright Chris Lomont 2010-2022.
+// This code and any ports are free for all to use for any reason as long 
+// as this header is left in place.
+// Version 1.1, Sept 2011
 #include <iostream>
 #include <vector>
 #define PI 3.141592653589793238462643383279502884197169399375105820974944
