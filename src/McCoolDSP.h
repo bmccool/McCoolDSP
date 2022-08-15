@@ -72,7 +72,7 @@ class HPS_Frequency_Detector {
             // TODO
 
             // Step 2 - Multiply by Hanning Window
-            // TODO
+            hanning();
 
             // Step 3 - Apply DFT
             // TODO
