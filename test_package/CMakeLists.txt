@@ -5,7 +5,7 @@ include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
 find_package(Catch2 3 REQUIRED)
-add_executable(test test.cpp test_LomontFFT.cpp)
+add_executable(test test.cpp)
 target_link_libraries(test ${CONAN_LIBS})
 target_link_libraries(test Catch2::Catch2)
 
