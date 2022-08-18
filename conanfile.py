@@ -3,17 +3,17 @@ from conans import ConanFile, CMake
 
 class McCoolDSPConan(ConanFile):
     name = "McCoolDSP"
-    version = "0.1"
-    license = "<Put the package license here>"
-    author = "<Put your name here> <And your email here>"
-    url = "<Package recipe repository url here, for issues about the package>"
-    description = "<Description of McCoolDSP here>"
-    topics = ("<Put some tag here>", "<here>", "<and here>")
+    version = "0.0.1"
+    license = "MIT"
+    author = "Brendon McCool brendonmccool@gmail.com"
+    url = "github.com/bmccool/McCoolDSP/"
+    description = "C++ collection of DSP tools intended for use on embedded systems"
+    topics = ("C++", "DSP", "HPS")
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False], "fPIC": [True, False]}
     default_options = {"shared": False, "fPIC": True}
     generators = "cmake", "CMakeDeps", "CMakeToolchain"
-    requires = "boost/1.79.0", "LomontFFT/0.1@mccool/release"
+    requires = "LomontFFT/0.1@mccool/release"
     exports_sources = "src/*"
 
     def config_options(self):
