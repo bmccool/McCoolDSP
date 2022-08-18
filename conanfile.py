@@ -3,7 +3,7 @@ from conans import ConanFile, CMake
 
 class McCoolDSPConan(ConanFile):
     name = "McCoolDSP"
-    version = "0.1.0"
+    version = "0.1.1"
     license = "MIT"
     author = "Brendon McCool brendonmccool@gmail.com"
     url = "github.com/bmccool/McCoolDSP/"
