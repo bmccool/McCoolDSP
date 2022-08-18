@@ -126,9 +126,5 @@ TEST_CASE("HPS_Frequency_Detector::RealFFT"){
     }
 
     auto ret_val = detector.detect();
-    //for(int i = 0; i < detector.samples.size(); i++){
-    //    std::cout << detector.samples[i] << std::endl;//", ";
-    //    //if(i % 10 == 0){ std::cout << std::endl; }
-    //}
-    std::cout << ret_val << std::endl;
+    REQUIRE(ret_val == Catch::Approx(455.5).epsilon(0.01));
 }
