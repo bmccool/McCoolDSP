@@ -5,16 +5,15 @@ pipeline {
             yaml '''
 apiVersion: v1
 kind: Pod
-metadata:
 spec:
-containers:
-    - name: python310
-        image: python:3.10.7-bullseye
-        command:
-            - sleep
-        args:
-            - infinity
-                '''
+  containers:
+  - name: python310
+    image: python:3.10.7-bullseye
+    command:
+    - sleep
+    args:
+    - infinity
+'''
             defaultContainer 'python310'
         }
     }
