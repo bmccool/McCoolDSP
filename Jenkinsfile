@@ -22,6 +22,8 @@ spec:
             steps {
                 sh 'hostname'
                 sh 'python --version'
+                sh 'pip install conan'
+                sh 'conan create .'
             }
         }
     }
