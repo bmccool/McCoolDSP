@@ -9,7 +9,7 @@ pipeline {
                 spec:
                 containers:
                     - name: python
-                        image: python:3.10.7-bullseye
+                        image: python
                         command:
                             - sleep
                         args:
