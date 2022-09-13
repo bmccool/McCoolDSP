@@ -2,13 +2,20 @@
 pipeline {
     agent {
         kubernetes {
-            containerTemplate {
-                name 'shell'
-                image 'ubuntu'
-                command 'sleep'
-                args 'infinity'
-            }
-            defaultContainer 'shell'
+            yaml '''
+                apiVersion: v1
+                kind: Pod
+                metadata:
+                spec:
+                containers:
+                    - name: python
+                        image: python:3.10.7-bullseye
+                        command:
+                            - sleep
+                        args:
+                            - infinity
+                '''
+            defaultContainer 'python'
         }
     }
     stages {
