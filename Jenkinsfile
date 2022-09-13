@@ -3,19 +3,19 @@ pipeline {
     agent {
         kubernetes {
             yaml '''
-                apiVersion: v1
-                kind: Pod
-                metadata:
-                spec:
-                containers:
-                    - name: python
-                        image: python
-                        command:
-                            - sleep
-                        args:
-                            - infinity
+apiVersion: v1
+kind: Pod
+metadata:
+spec:
+containers:
+    - name: python310
+        image: python:3.10.7-bullseye
+        command:
+            - sleep
+        args:
+            - infinity
                 '''
-            defaultContainer 'python'
+            defaultContainer 'python310'
         }
     }
     stages {
