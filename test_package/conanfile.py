@@ -12,7 +12,7 @@ class McCoolDSPTestConan(ConanFile):
         cmake = CMake(self)
         # Current dir is "test_package/build/<build_id>" and CMakeLists.txt is
         # in "test_package"
-        cmake.configure()
+        cmake.configure(args=["-g"])
         cmake.build()
 
     def imports(self):
@@ -23,4 +23,4 @@ class McCoolDSPTestConan(ConanFile):
     def test(self):
         if not tools.cross_building(self):
             os.chdir("bin")
-            self.run(f".{os.sep}test")
+            self.run(f"valgrind .{os.sep}test")

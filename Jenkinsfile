@@ -8,7 +8,7 @@ kind: Pod
 spec:
   containers:
   - name: conan
-    image: conanio/gcc10:1.52.0
+    image: bmccool/conan
     command:
     - sleep
     args:
