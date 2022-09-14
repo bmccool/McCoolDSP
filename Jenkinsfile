@@ -17,6 +17,9 @@ spec:
             defaultContainer 'conan'
         }
     }
+    environment {
+        CONAN_PASSWORD = credentials('CONAN_PASSWORD')
+    }
     stages {
         stage('Main') {
             steps {
