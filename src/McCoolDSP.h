@@ -19,7 +19,7 @@ class HPS_Frequency_Detector {
         LomontFFT LFFT;
 
     public:
-        unsigned unsigned int window_size, num_products;
+        unsigned int window_size, num_products;
         // Create a circular buffer with a capacity for 3 integers.
         //boost::circular_buffer<double> samples;
         std::vector<double> samples;
