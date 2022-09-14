@@ -13,7 +13,7 @@ class McCoolDSPConan(ConanFile):
     options = {"shared": [True, False], "fPIC": [True, False]}
     default_options = {"shared": False, "fPIC": True}
     generators = "cmake", "CMakeDeps", "CMakeToolchain"
-    requires = "LomontFFT/0.1@mccool/release"
+    requires = "LomontFFT/0.1.0"
     exports_sources = "src/*"
 
     def config_options(self):
