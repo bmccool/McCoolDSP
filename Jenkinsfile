@@ -33,7 +33,7 @@ spec:
                 //sh 'conan profile new default --detect'
                 //sh 'conan profile update settings.compiler.libcxx=libstdc++11 default'
                 //sh 'conan profile show default'
-                sh 'conan create . -e CMAKE_CXX_FLAGS="-g -O0"'
+                sh 'conan create . -e CXXFLAGS="-g -O0"'
             }
         }
     }
