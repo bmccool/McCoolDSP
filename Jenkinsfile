@@ -27,9 +27,9 @@ spec:
                 sh 'pwd'
                 sh 'ls -la'
                 sh 'python --version'
-                //sh 'pip install conan'
                 sh 'conan remote add mccool https://artifactory-ce.taurus.brendonmccool.com/artifactory/api/conan/conan-local'
                 sh 'conan user -p $CONAN_PASSWORD -r mccool admin'
+                sh 'conan profile new default --detect'
                 sh 'conan profile show default'
                 sh 'conan create .'
             }
