@@ -30,6 +30,7 @@ spec:
                 //sh 'pip install conan'
                 sh 'conan remote add mccool https://artifactory-ce.taurus.brendonmccool.com/artifactory/api/conan/conan-local'
                 sh 'conan user -p $CONAN_PASSWORD -r mccool admin'
+                sh 'conan profile show default'
                 sh 'conan create .'
             }
         }
