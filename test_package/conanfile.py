@@ -12,8 +12,12 @@ class McCoolDSPTestConan(ConanFile):
         cmake = CMake(self)
         # Current dir is "test_package/build/<build_id>" and CMakeLists.txt is
         # in "test_package"
-        cmake.configure(args=["-g", "-O0"])
-        cmake.build(args=["-g", "-O0"])
+        # TODO need to add args=["-g", "-O0"] to CXXFLAGS, compiler flags, whatever you want to call them
+        # This is really what a profile is for I think... 
+        # We can cat out the default profile build under jenkins, then use it as a template to create a jenkins profile
+        # Add the flags there
+        cmake.configure()
+        cmake.build()
 
     def imports(self):
         self.copy("*.dll", dst="bin", src="bin")
