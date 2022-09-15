@@ -12,7 +12,7 @@ class McCoolDSPTestConan(ConanFile):
         cmake = CMake(self)
         # Current dir is "test_package/build/<build_id>" and CMakeLists.txt is
         # in "test_package"
-        cmake.configure(args=["-g"])
+        cmake.configure(args=["-g", "-O0"])
         cmake.build()
 
     def imports(self):
