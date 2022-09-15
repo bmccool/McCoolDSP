@@ -9,6 +9,7 @@ class McCoolDSPTestConan(ConanFile):
     requires = "catch2/3.1.0"
 
     def build(self):
+        print("Building McCoolDSPTestConan!")
         cmake = CMake(self)
         # Current dir is "test_package/build/<build_id>" and CMakeLists.txt is
         # in "test_package"
@@ -19,10 +20,17 @@ class McCoolDSPTestConan(ConanFile):
         cmake.configure()
         cmake.build()
 
-    def package_info(self):
-        if not self.settings.os == "Windows":
-            self.cpp_info.cxxflags.append("-g")
-            self.cpp_info.cxxflags.append("-O0")
+    #def configure(self):
+    #    print("Configure for McCoolDSPTestConan!")
+    #    self.settings.compiler
+
+    # packge info is actually for CONSUMERS, not used in production of the package...
+    #def package_info(self):
+    #    print("Package Info for McCoolDSPTestConan!")
+    #    if not self.settings.os == "Windows":
+    #        self.cpp_info.cxxflags.append("-g")
+    #        self.cpp_info.cxxflags.append("-O0")
+    #    print(f"CXXFLAGS={self.cpp_info.cxxflags}")
 
     def imports(self):
         self.copy("*.dll", dst="bin", src="bin")
@@ -32,4 +40,7 @@ class McCoolDSPTestConan(ConanFile):
     def test(self):
         if not tools.cross_building(self):
             os.chdir("bin")
-            self.run(f"valgrind .{os.sep}test")
+            if self.settings.os == "Windows":
+                self.run(f".{os.sep}test")
+            else:
+                self.run(f"valgrind .{os.sep}test")
