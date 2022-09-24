@@ -21,7 +21,7 @@ spec:
         CONAN_PASSWORD = credentials('CONAN_PASS_TAURUS')
     }
     stages {
-        stage('Main') {
+        stage('Test') {
             steps {
                 sh 'hostname'
                 sh 'pwd'
@@ -34,6 +34,12 @@ spec:
                 //sh 'conan profile update settings.compiler.libcxx=libstdc++11 default'
                 //sh 'conan profile show default'
                 sh 'conan create . -e CXXFLAGS="-g -O0"'
+            }
+        }
+        stage('Publish') {
+            steps {
+                sh 'conan create .' // No Debug for export
+                sh 'conan upload "McCoolDSP*" --all -r mccool -c --retry 3 --retry-wait 10 --no-overwrite'
             }
         }
     }
